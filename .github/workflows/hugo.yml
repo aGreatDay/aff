@@ -42,6 +42,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          sparse-checkout: |
+            site
           submodules: recursive
       - name: Setup Pages
         id: pages
