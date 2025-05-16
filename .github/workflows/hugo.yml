@@ -42,8 +42,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          sparse-checkout: |
-            site
           submodules: recursive
       - name: Setup Pages
         id: pages
@@ -54,6 +52,7 @@ jobs:
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
+        working-directory: ./site
         run: |
           hugo \
             --minify \
